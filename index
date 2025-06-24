@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Konjunktionsspel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            color: #333;
+        }
+        #sentence {
+            font-size: 1.5em;
+            margin: 30px 0;
+            color: #006699;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #006699;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #004466;
+        }
+    </style>
+</head>
+<body>
+    <h1>Konjunktionsspel</h1>
+    <p>Klicka på knappen för att skapa en mening med en konjunktion.</p>
+    <div id="sentence">...</div>
+    <button onclick="generateSentence()">Generera mening</button>
+
+    <script>
+        const foreled = [
+            "Jag är trött",
+            "Hon gillar kaffe",
+            "Vi stannar hemma",
+            "Han är sjuk",
+            "Jag försov mig",
+            "De tränar fotboll",
+            "Jag lagar mat",
+            "Hon är glad",
+            "Du kan ta bussen",
+            "Vi gick hem"
+        ];
+
+        const konjunktioner = [
+            "och", "men", "eller", "för", "så", "eftersom", "när", "medan"
+        ];
+
+        const efterled = [
+            "jag måste jobba",
+            "te",
+            "det regnar",
+            "han går till skolan ändå",
+            "jag missade bussen",
+            "jag läser en bok",
+            "lyssnar på musik",
+            "hon fick ett jobb",
+            "cykla",
+            "det blev sent"
+        ];
+
+        function generateSentence() {
+            const f = foreled[Math.floor(Math.random() * foreled.length)];
+            const k = konjunktioner[Math.floor(Math.random() * konjunktioner.length)];
+            const e = efterled[Math.floor(Math.random() * efterled.length)];
+            document.getElementById("sentence").textContent = f + " " + k + " " + e + ".";
+        }
+    </script>
+</body>
+</html>
