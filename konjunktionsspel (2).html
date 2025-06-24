@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>Konjunktionsspel</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 2em; background-color: #f0f8ff; }
+        button { font-size: 1.2em; padding: 0.5em 1em; margin-top: 1em; }
+        .sentence { margin-top: 2em; font-size: 1.5em; color: #333; }
+    </style>
+</head>
+<body>
+    <h1>🎲 Konjunktionsspel</h1>
+    <p>Klicka på knappen för att skapa en mening med en slumpad konjunktion.</p>
+    <button onclick="generateSentence()">Generera mening</button>
+    <div class="sentence" id="sentence"></div>
+
+    <script>
+        const foreled = [
+            "Jag är trött", "Hon gillar kaffe", "Vi stannar hemma", "Han är sjuk", "De tränar fotboll",
+            "Jag lagar mat", "Hon är glad", "Du kan ta bussen", "Vi gick hem", "Jag pluggar svenska"
+        ];
+        const konjunktioner = ["och", "men", "eller", "för", "så", "eftersom", "när", "medan"];
+        const efterled = [
+            "jag måste jobba", "hon dricker te", "det regnar", "han går till skolan ändå", "jag läser en bok",
+            "jag lyssnar på musik", "hon fick ett jobb", "du kan cykla", "det blev sent", "jag vill förstå mer"
+        ];
+
+        function generateSentence() {
+            const f = foreled[Math.floor(Math.random() * foreled.length)];
+            const k = konjunktioner[Math.floor(Math.random() * konjunktioner.length)];
+            const e = efterled[Math.floor(Math.random() * efterled.length)];
+            document.getElementById("sentence").textContent = f + " " + k + " " + e + ".";
+        }
+    </script>
+</body>
+</html>
